@@ -1,0 +1,20 @@
+.page-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    h1 {
+        color: var(--blue);
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        margin: 0 0 10px;
+    }
+
+    p {
+        color: var(--blue);
+        margin: 0;
+        font-weight: 500;
+    }
+}
