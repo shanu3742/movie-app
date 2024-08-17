@@ -1,11 +1,13 @@
 import React,{memo, useState} from 'react'
 import './Home.scss'
 import { CuttomAlert, Search } from '../../lib'
-import {Card} from '../../component'
+import {ResponsiveGrid} from '../../component'
 import { FaFilter } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovie } from '../../api/movie.api';
+import { useNavigate } from 'react-router';
+
 const Alert_Message='search text atleast has three character';
 const Filter_Data = {
     genre:['Action', 'Adventure'],
@@ -20,8 +22,9 @@ const Filter_Data = {
 
 }
 const Home = () => {
-const [movieIdList,setMovieIdList] = useState(JSON.parse(localStorage.getItem('movieid'))??[])
+// const [movieIdList,setMovieIdList] = useState(JSON.parse(localStorage.getItem('movieid'))??[])
 const homeStore = useSelector((store) => store.home);
+const navigate = useNavigate()
 const dispatch = useDispatch()
 console.log(homeStore)
 const [isfilterOn,setIsFilterOn] = useState(false);
@@ -101,24 +104,16 @@ const onFilter = () => {
 }
 
 
-const onStarClick = React.useCallback((movie) => {
-    const movieSavedInMemory =JSON.parse(localStorage.getItem('movie'))??[];
-    const movieIdList =JSON.parse(localStorage.getItem('movieid'))??[];
-    const movieId=movie.imdbID;
-    const updatedIdList = [...movieIdList,movieId]
-    const updatedMovie = [movie,...movieSavedInMemory]
-    localStorage.setItem('movie',JSON.stringify(updatedMovie))
-    localStorage.setItem('movieid',JSON.stringify(updatedIdList))
-    setMovieIdList(updatedIdList)
+
   
-},[])
-      
+
+
   return (
     <>
         <section className='movie_home__header'>
            <Search onSearch={onMovieSearch} />
            <div className='movie-filter__container'>
-                <button className='movie-filter__btn m-h-5' onClick={() => setIsFilterOn((p) => !p) }><FaFilter/></button>
+                <button className='movie-filter__btn m-h-5' onClick={() => setIsFilterOn((p) => !p) }><FaFilter color='blue'/></button>
                 {
                     isfilterOn && <>
                         <div className='movie-filter__option___overlay' onClick={() => setIsFilterOn(false)}>  </div>
@@ -190,15 +185,20 @@ const onStarClick = React.useCallback((movie) => {
            {!homeStore.isLoading  && homeStore.filterResult?.Search?.length>0 && <>
 
         {
-            homeStore.filterResult?.Search.map((cardItem,cardIndex) => {
-                return <Card key={cardItem.imdbID}  id={cardItem.imdbID} name={cardItem.Title} image={cardItem.Poster} onStarClick={() => onStarClick(cardItem)} active={movieIdList.includes(cardItem.imdbID)}/>
-            })
+          
+           
+              <ResponsiveGrid items={homeStore.filterResult?.Search} />
+
+               
         }
 
             </>
 
            }
        </footer> 
+
+       <button className='saved-movie__button' onClick={() => navigate('/stared')}>Saved Movies</button>
+
     </>
   )
 }

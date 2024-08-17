@@ -7,4 +7,13 @@ const fetchMovie = createAsyncThunk('home/fetchmovie', async (searchText='india'
   }
 )
 
-export {fetchMovie}
+const fetchMovieDetails = createAsyncThunk('home/fetchmovie', async (id) => {
+  console.log(id)
+  const res = await axios(`https://www.omdbapi.com/?i=${id}&apikey=86360b2a`)
+  const data = await res.data
+  return data
+}
+)
+
+
+export {fetchMovie,fetchMovieDetails}
