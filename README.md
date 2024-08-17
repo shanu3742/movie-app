@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Getting Started with Movie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project gitHub link [REPO](https://github.com/shanu3742/movie-app).
 
-## Available Scripts
+## To Run Project Step given Below
 
-In the project directory, you can run:
+- clone repo [REPO](https://github.com/shanu3742/movie-app)
+- cd boxe-office
+- npm install
+- npm start
 
-### `npm start`
+## To Build the Movie App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- clone repo [REPO](https://github.com/shanu3742/movie-app)
+- cd boxe-office
+- npm install
+- npm  run build
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+>project deploy at [URL](https://66c08579832d574bf2f489f5--dynamic-dolphin-bec04c.netlify.app/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## DESIGN DECISIONS
+- used **MVC** design pattern
+- all logic and  global state are mangaed using redux toolkit
+- Ui lavel state mange using react hooks 
 
-### `npm run build`
+- all low level component are define in **lib** folder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- all custom component are define in **component folder**
+- all page level component define in **page folder**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- we implement **lazy loading** to decrease the load time of application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- all routes is define in **routes.js** file
 
-### `npm run eject`
+- api folder is created to manage the network call across the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- for theme we created theme where we define seprate theme for both light and dark and select the variable of it based on light or dark class
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- we try to put all global level class in global.scss file 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- we used memo and useCallback together to achive performance and avoid unnecessary re-rendring
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## need to improvement 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> css class name i try to follow one convenation but because of time i didn't follow in all componnet
 
-### Code Splitting
+> we can improve filter code also but for now i just created a simple filter with cutom filtering and if you want to use custom filter used Title as key and in value you can pass search text
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> if there is no filter data , i didn't handle this senario
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+>we can split home page code code where we will move filter code in differnt component and used it in home but for now i created filter ui in home page only
