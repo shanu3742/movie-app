@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
    
-    background-color: var(--blue);
+    background-color: rgb(203, 203, 252);
     color: var(--color);
     cursor: pointer;
 
@@ -95,10 +95,16 @@
     cursor: pointer;
 
 }
-.movie-home_card__container{
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center ;
+.saved-movie__button{
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid red;
+    color:red;
+    background-color: rgb(255, 235, 235);
 }
