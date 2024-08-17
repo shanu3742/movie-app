@@ -1,0 +1,42 @@
+.starred-container{
+    display: flex;
+   flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    position: relative;
+  
+}
+.saved-card-container{
+    display: flex;
+    position: relative;
+}
+.navigation-button{
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--blue);
+    background-color: var(--blue);
+    color: #FFFFFF;
+    z-index: 5;
+}
+
+.remove-button{
+    position: absolute;
+    right: 0%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid red;
+    color:red;
+    background-color: rgb(250, 172, 172);
+}
