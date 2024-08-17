@@ -7,10 +7,11 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovie } from '../../api/movie.api';
 import { useNavigate } from 'react-router';
+import { onMovieFilter } from './Home.slice';
 
 const Alert_Message='search text atleast has three character';
 const Filter_Data = {
-    genre:['Action', 'Adventure'],
+    genre:['movie', 'series','episode'],
     'release Year':{
         start:'',
         end:''
@@ -101,6 +102,7 @@ React.useEffect(() => {
 const onFilter = () => {
     setIsFilterOn(false)
     console.log(filterOption)
+    dispatch(onMovieFilter(filterOption))
 }
 
 
